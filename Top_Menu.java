@@ -51,7 +51,7 @@ public class Top_Menu {
 			default:
 
 				System.out.println("Invalid choice.");
-
+				
 			}
 
 		}
@@ -61,7 +61,30 @@ public class Top_Menu {
 
 	// account register method
 	public static void registerAccount() {
+		
+		// account creation, creating a new user object for this new user
+		
+		// creating scanner to take data input
+		Scanner in = new Scanner(System.in);
+		
 		System.out.println("Enter your email address:");
+		String email = in.next();
+		
+		System.out.println("Enter your full name:");
+		String name = in.next();
+		
+		System.out.println("Enter your Phone Number");
+		String phone = in.next();
+		
+		System.out.println("Choose a password:");
+		String password = in.next();
+		
+		// printing out details to test
+		System.out.println("email: " + email);
+		System.out.println("Name: " + name);
+		System.out.println("Phone Number: " + phone);
+		System.out.println("Password: " + password);
+		
 	}
 
 	// run logged in method (ask for password)
@@ -72,6 +95,7 @@ public class Top_Menu {
 		// check log in details
 
 		// if details are correct, log in and go to log in menu
+		Logged_In_Menu.main(null);
 
 	}
 }
