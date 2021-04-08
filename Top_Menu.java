@@ -2,6 +2,8 @@ package Menues;
 
 import java.util.Scanner;
 
+import accounts.User;
+
 public class Top_Menu {
 
 	public static void main(String[] args) {
@@ -74,23 +76,35 @@ public class Top_Menu {
 		String name = in.next();
 		
 		System.out.println("Enter your Phone Number");
-		String phone = in.next();
+		int phone = in.nextInt();
 		
 		System.out.println("Choose a password:");
 		String password = in.next();
 		
-		// printing out details to test
-		System.out.println("email: " + email);
-		System.out.println("Name: " + name);
-		System.out.println("Phone Number: " + phone);
-		System.out.println("Password: " + password);
+//		// printing out details to test
+//		System.out.println("email: " + email);
+//		System.out.println("Name: " + name);
+//		System.out.println("Phone Number: " + phone);
+//		System.out.println("Password: " + password);
+		
+		// creating a new user object according to the inputed data
+		User user1 = new User(name, password, email, phone);
+		
+		// storing the user1 object in an array in Account_Storage.java
+		
+		
+		// test print
+		// System.out.println("email: " + user1.getEmail());
 		
 	}
 
-	// run logged in method (ask for password)
+	// run log in method (ask for password)
 	public static void logIn() {
 		System.out.println("Enter your email address:");
 		System.out.println("Enter your password:");
+		
+		// make option for forgot password and password will be emailed
+		
 
 		// check log in details
 
@@ -98,4 +112,10 @@ public class Top_Menu {
 		Logged_In_Menu.main(null);
 
 	}
+	
+
+	
+	
+	
+	
 }

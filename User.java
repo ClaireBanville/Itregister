@@ -1,4 +1,4 @@
-package Menues;
+package accounts;
 
 public class User {
 
