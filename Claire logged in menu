@@ -63,7 +63,7 @@ public class Logged_In_Menu {
 		}
 		System.out.println();
 
-	} while (selection != 'X');
+	} while (selection != '3');
 
 }
 
