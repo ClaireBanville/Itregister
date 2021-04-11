@@ -85,6 +85,8 @@ public class Top_Menu {
 				break;	
 			}
 			
+			System.out.println("Please enter a valid email address");
+			
 		}	
 			
 		
@@ -97,6 +99,8 @@ public class Top_Menu {
 			if (checkUserName(name) = true){
 				break;	
 			}
+			
+			System.out.println("Please enter a valid");
 			
 		}	
 		
@@ -111,6 +115,7 @@ public class Top_Menu {
 			if (checkPhone(phone) = true){
 				break;	
 			}
+			System.out.println("Please enter a valid phone number");
 			
 		}	
 		
@@ -124,7 +129,7 @@ public class Top_Menu {
 			if (checkPassword(password) = true){
 				break;	
 			}
-			
+			System.out.println("Please enter a valid password");
 		}	
 		
 		
