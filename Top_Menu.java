@@ -76,16 +76,62 @@ public class Top_Menu {
 		Scanner in = new Scanner(System.in);
 		
 		System.out.println("Enter your email address:");
-		String email = in.next();
+		
+		while(1){
+			
+			String email = in.next();
+			
+			if (checkEmail(email) = true){
+				break;	
+			}
+			
+			System.out.println("Please enter a valid email address");
+			
+		}	
+			
+		
 		
 		System.out.println("Enter your full name:");
-		String name = in.next();
+		while(1){
+			
+			String name = in.next();
+			
+			if (checkUserName(name) = true){
+				break;	
+			}
+			
+			System.out.println("Please enter a valid");
+			
+		}	
+		
+		
 		
 		System.out.println("Enter your Phone Number");
-		int phone = in.nextInt();
+		
+		while(1){
+			
+			int phone = in.nextInt();
+			
+			if (checkPhone(phone) = true){
+				break;	
+			}
+			System.out.println("Please enter a valid phone number");
+			
+		}	
+		
 		
 		System.out.println("Choose a password:");
-		String password = in.next();
+		
+		while(1){
+			
+			String password = in.next();
+			
+			if (checkPassword(password) = true){
+				break;	
+			}
+			System.out.println("Please enter a valid password");
+		}	
+		
 		
 //		// printing out details to test
 //		System.out.println("email: " + email);
