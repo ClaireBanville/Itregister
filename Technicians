@@ -1,0 +1,28 @@
+package accounts;
+
+public class Technicians {
+
+	public static String technicianLvl, technicianName, technicianPass;
+
+	public static void main(String[] args) {
+		
+		technicianName = "Harry Styles";
+		technicianPass = "Technician1";
+		technicianLvl = "1";
+		technicianName = "Niall Horan";
+		technicianPass = "Technician2";
+		technicianLvl = "1";
+		technicianName = "Liam Payne";
+		technicianPass = "Technician3";
+		technicianLvl = "1";
+		technicianName = "Louis Tomlinson";
+		technicianPass = "Technician4";
+		technicianLvl = "2";
+		technicianName = "Zayn Malik";
+		technicianPass = "Technician5";
+		technicianLvl = "2";
+
+
+	}
+
+}
