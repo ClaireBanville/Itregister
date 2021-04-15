@@ -1,74 +1,121 @@
 package Menues;
-
+import java.util.UUID;
 import java.util.Scanner;
 
+import accounts.User;
+
+
 public class Logged_In_Menu {
-
+	private static final Scanner sc = new Scanner(System.in);
+	private static final Submit_IT_Docket[] itsubmittions = new Submit_IT_Docket[1000];
+	private static int submittionCount = 0;
+	
 	public static void main(String[] args) {
+	String menuSelection;
+	char selection = '\0';
+	
 
-		// boolean to quit the menu loop
-		boolean quit = false;
+	do 	{		
+		System.out.println("Select an option:");
+		System.out.println("1. Submit an IT ticket");
+		System.out.println("2. View IT ticket submissions");
+		System.out.println("3. Log Out");
+		System.out.println("4. Change Password");
+		
+		// take input 
+		System.out.println();
 
-		// take input
-		Scanner in = new Scanner(System.in);
+		System.out.print("Enter your selection: ");
+		menuSelection = sc.nextLine();
 
-		while (quit == false) {
+		if (menuSelection.length() != 1) {
+			System.out.println("Error - selection must be a single character!");
 
-			System.out.println("Select an option:");
-			System.out.println("1. Submit an IT ticket");
-			System.out.println("2. View IT ticket submissions");
-			System.out.println("3. Log Out");
-			System.out.println("4. Change Password");
+		} else {
+			selection = Character.toUpperCase(menuSelection.charAt(0));
 
-			int menuSelection = in.nextInt();
+			switch (selection) {
+			case '1':
 
-			// process input
-			switch (menuSelection) {
-
-			case 1: // submit an IT ticket
-				System.out.println("Input Ticket Details");
-
-				// run ticket submission method
-
+				addITsubmittion();
 				break;
 
-			case 2: // View IT ticket submissions
-				System.out.println("Here are your current ticket submissions:");
+			case '2':
 
-				// run IT ticket list method
-
+				listAll();
 				break;
 
-			case 3: // Log Out
-				System.out.println("Logging you out.....");
-				System.out.println(".....");
+			case '3':
 
-				// run log out method
-				logOut();
-
+				System.out.println("System shutting down – goodbye!");
+				Top_Menu.main(null);
 				break;
 
-			case 4: // Change Password
-				System.out.println("Change your password:");
+			case '4':
 
-				// run change password method
-
+				changePassword();
 				break;
-
+				
 			default:
 
-				System.out.println("Invalid choice.");
-
+				System.out.println("Error - invalid selection!");
 			}
-
 		}
+		System.out.println();
+
+	} while (selection != '3');
+
+}
+
+		 private static void changePassword() {
+		// TODO Auto-generated method stub
+				System.out.println("Change your password:");
 	}
-	
-	
-	// log out method
-	public static void logOut()
-	{
-		Top_Menu.main(null);
+
+		private static void listAll() {
+		// TODO Auto-generated method stub
+			System.out.println("Here are your current ticket submissions:");
+			
+			for (int i = 0; i < submittionCount; i++) {
+				itsubmittions[i].printITsubmittion();
+				System.out.println();
+			}
+		
+	}
+
+		private static void addITsubmittion() {
+		// TODO Auto-generated method stub
+			System.out.println("Input Ticket Details");
+			
+			String description, userName;
+			int severity;
+			
+		    UUID uniqueKey = UUID.randomUUID();
+		    System.out.println ("Ticket ID: " + uniqueKey);
+			System.out.println("Please Enter desciption of issue:");
+			description = sc.nextLine();
+			System.out.println("1 - Low (localised) \n2 - Medium (affecting a small group) \n3- High (affecting a large group) \n4 - Critical (affecting all users)");
+			System.out.println("Please select severity:");
+			severity = sc.nextInt();
+			System.out.println(User.getUserName());
+			userName = sc.nextLine();
+						
+			sc.nextLine();
+
+			itsubmittions[submittionCount ] = new Submit_IT_Docket(uniqueKey, description, severity, userName);
+			submittionCount ++;
+			
+			sc.nextLine();
+			
+			
+				if(UUID.randomUUID().equals(uniqueKey)) {
+				for (int i = 0; i < submittionCount; i++) {
+				itsubmittions[i].printITsubmittion();
+				System.out.println();
+				}
+			}
+				System.out.println("IT docket has been successfully submitted to the IT team - Thank you");
 	}
 
 }
+
