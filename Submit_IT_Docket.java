@@ -1,19 +1,20 @@
 package Menues;
 
 public class Submit_IT_Docket {
-	private String description, userName, randomValue;
+	private String description, userName, randomValue, randomValue2;
 	private int severity;
 	private String uniqueKey;
 
 	// String userName add back into array once Top menu is functional
 
-	public Submit_IT_Docket(String uniqueKey, String description, int severity, String randomValue) {
+	public Submit_IT_Docket(String uniqueKey, String description, int severity, String randomValue, String randomValue2) {
 		// TODO Auto-generated constructor stub
 		this.description = description;
 		this.severity = severity;
 		// this.userName = userName;
 		this.uniqueKey = uniqueKey;
 		this.randomValue = randomValue;
+		this.randomValue2 = randomValue2;
 	}
 
 	public String getDescription() {
@@ -35,6 +36,11 @@ public class Submit_IT_Docket {
 	public String getRandomValue() {
 		return randomValue;
 	}
+	
+	public String getRandomValue2() {
+		return randomValue2;
+	}
+	
 	public void printITsubmittion() {
 //Prints details of the submitted IT Docket
 		System.out.printf("%s %s\n", "Issue ID:", uniqueKey);
@@ -61,7 +67,7 @@ public class Submit_IT_Docket {
 			System.out.printf("%s %s\n", "Issue Description:", description);
 			System.out.printf("%s %s\n", "Issue Severity:", severity);
 			// System.out.printf("%s %s\n", "Issue Reporter:", userName);
-			System.out.printf("%s %s\n", "Assigned Technician:", randomValue);
+			System.out.printf("%s %s\n", "Assigned Technician:", randomValue2);
 
 		}
 
