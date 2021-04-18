@@ -1,8 +1,23 @@
 package accounts;
 
-public class Technicians {
+import java.util.Random;
+import java.util.Scanner;
 
-	public static String technicianLvl, technicianName, technicianPass;
+import Menues.Submit_IT_Docket;
+
+public class Technicians {
+	
+	private final static String[] POSSIBLE_VALUES = { "Harry Styles", "Niall Horan", "Liam Payne"};
+    private final static Random random = new Random();
+	
+	private final static String[] POSSIBLE_VALUES2 = { "Louis Tomlinson", "Zayn Malik"};
+    private final static Random random2 = new Random();
+   
+	
+
+	public static String technicianLvl;
+	public static String technicianName, technicianPass;
+
 
 	public static void main(String[] args) {
 		
@@ -22,7 +37,29 @@ public class Technicians {
 		technicianPass = "Technician5";
 		technicianLvl = "2";
 
-
+	}
+	public Technicians(String technicianName, String technicianPass, String technicianLvl) {
+		// TODO Auto-generated constructor stub
+		this.technicianName = technicianName;
+		this.technicianPass = technicianPass;
+		this.technicianLvl = technicianLvl;
 	}
 
+	public String getName() {
+		return technicianName;
+	}
+
+	public String getPass() {
+		return technicianPass;
+	}
+	public String getLevel() {
+		return technicianLvl;
+	}
+
+    public static String getRandomValue() {
+        return POSSIBLE_VALUES[random.nextInt(POSSIBLE_VALUES.length)];
+    }
+    public static String getRandomValue2() {
+        return POSSIBLE_VALUES2[random2.nextInt(POSSIBLE_VALUES2.length)];
+    }
 }
