@@ -1,11 +1,17 @@
 package Menues;
 import java.util.UUID;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
+import accounts.Technicians;
 import accounts.User;
 
 
+
+
 public class Logged_In_Menu {
+	private static Map<String, User> userMap = new HashMap<String, User>();
 	private static final Scanner sc = new Scanner(System.in);
 	private static final Submit_IT_Docket[] itsubmittions = new Submit_IT_Docket[1000];
 	private static int submittionCount = 0;
@@ -69,7 +75,7 @@ public class Logged_In_Menu {
 
 		 private static void changePassword() {
 		// TODO Auto-generated method stub
-				System.out.println("Change your password:");
+			 Top_Menu.registerAccount();
 	}
 
 		private static void listAll() {
@@ -77,7 +83,7 @@ public class Logged_In_Menu {
 			System.out.println("Here are your current ticket submissions:");
 			
 			for (int i = 0; i < submittionCount; i++) {
-				itsubmittions[i].printITsubmittion();
+				itsubmittions[i].techicianITTickets();
 				System.out.println();
 			}
 		
@@ -87,34 +93,41 @@ public class Logged_In_Menu {
 		// TODO Auto-generated method stub
 			System.out.println("Input Ticket Details");
 			
-			String description, userName;
+			String description, randomValue = "";
 			int severity;
 			
-		    UUID uniqueKey = UUID.randomUUID();
+		    String uniqueKey = UUID.randomUUID().toString();
 		    System.out.println ("Ticket ID: " + uniqueKey);
 			System.out.println("Please Enter desciption of issue:");
 			description = sc.nextLine();
 			System.out.println("1 - Low (localised) \n2 - Medium (affecting a small group) \n3- High (affecting a large group) \n4 - Critical (affecting all users)");
 			System.out.println("Please select severity:");
 			severity = sc.nextInt();
-			System.out.println(User.getUserName());
-			userName = sc.nextLine();
-						
+			//System.out.println(User.getUserName());
+			//userName = sc.nextLine();
+			if (severity == 1 || severity == 2) {
+			System.out.println("Assigned Technician: "  + Technicians.getRandomValue());
+			randomValue = sc.nextLine();
+			}
+			else if (severity == 3 || severity == 4) {
+			System.out.println("Assigned Technician: "  + Technicians.getRandomValue2());
+			randomValue = sc.nextLine();
+			}
+			
 			sc.nextLine();
 
-			itsubmittions[submittionCount ] = new Submit_IT_Docket(uniqueKey, description, severity, userName);
+			
+			itsubmittions[submittionCount] = new Submit_IT_Docket(uniqueKey, description, severity, randomValue);
 			submittionCount ++;
 			
 			sc.nextLine();
 			
 			
-				if(UUID.randomUUID().equals(uniqueKey)) {
-				for (int i = 0; i < submittionCount; i++) {
-				itsubmittions[i].printITsubmittion();
-				System.out.println();
-				}
-			}
-				System.out.println("IT docket has been successfully submitted to the IT team - Thank you");
+			//	for (int i = 0; i < submittionCount; i++) {
+			//	itsubmittions[i].printITsubmittion();
+			//	System.out.println();
+			//	}
+			//	System.out.println("IT docket has been successfully submitted to the IT team - Thank you");
 	}
 
 }
