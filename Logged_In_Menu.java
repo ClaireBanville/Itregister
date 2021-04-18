@@ -1,7 +1,5 @@
 package Menues;
 import java.util.UUID;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 import accounts.Technicians;
@@ -11,7 +9,6 @@ import accounts.User;
 
 
 public class Logged_In_Menu {
-	private static Map<String, User> userMap = new HashMap<String, User>();
 	private static final Scanner sc = new Scanner(System.in);
 	private static final Submit_IT_Docket[] itsubmittions = new Submit_IT_Docket[1000];
 	private static int submittionCount = 0;
@@ -93,7 +90,7 @@ public class Logged_In_Menu {
 		// TODO Auto-generated method stub
 			System.out.println("Input Ticket Details");
 			
-			String description, randomValue = "";
+			String description, randomValue = Technicians.getRandomValue(), randomValue2 = Technicians.getRandomValue2();
 			int severity;
 			
 		    String uniqueKey = UUID.randomUUID().toString();
@@ -106,18 +103,17 @@ public class Logged_In_Menu {
 			//System.out.println(User.getUserName());
 			//userName = sc.nextLine();
 			if (severity == 1 || severity == 2) {
-			System.out.println("Assigned Technician: "  + Technicians.getRandomValue());
-			randomValue = sc.nextLine();
+			System.out.println("Assigned Technician: "  + randomValue);
 			}
 			else if (severity == 3 || severity == 4) {
-			System.out.println("Assigned Technician: "  + Technicians.getRandomValue2());
-			randomValue = sc.nextLine();
-			}
+			System.out.println("Assigned Technician: "  + randomValue2);
+		}
+			
 			
 			sc.nextLine();
 
 			
-			itsubmittions[submittionCount] = new Submit_IT_Docket(uniqueKey, description, severity, randomValue);
+			itsubmittions[submittionCount] = new Submit_IT_Docket(uniqueKey, description, severity, randomValue, randomValue2);
 			submittionCount ++;
 			
 			sc.nextLine();
