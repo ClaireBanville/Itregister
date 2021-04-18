@@ -4,10 +4,18 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+// import Menues.Menu_Regex;
+
 import accounts.User;
 import accounts.Account_Storage;
 
 public class Top_Menu {
+
+	// stuff from regex
+
+	// end stuff from regex
+	// ----------------------------
+	// ------------------------------
 
 	// creating a map of users
 	private static Map<String, User> userMap = new HashMap<String, User>();
@@ -72,16 +80,22 @@ public class Top_Menu {
 
 		// account creation, creating a new user object for this new user
 
+		// declaring the variables
+		String email;
+		String name;
+		CharSequence phone;
+		String password;
+
 		// creating scanner to take data input
 		Scanner in = new Scanner(System.in);
 
 		System.out.println("Enter your email address:");
 
-		while (1) {
+		while (true) {
 
-			String email = in.next();
+			email = in.next();
 
-			if (checkEmail(email) == true) {
+			if (Menu_Regex.checkEmail(email) == true) {
 				break;
 			}
 
@@ -90,11 +104,11 @@ public class Top_Menu {
 		}
 
 		System.out.println("Enter your full name:");
-		while (1) {
+		while (true) {
 
-			String name = in.next();
+			name = in.next();
 
-			if (checkUserName(name) == true) {
+			if (Menu_Regex.checkUserName(name) == true) {
 				break;
 			}
 
@@ -104,11 +118,11 @@ public class Top_Menu {
 
 		System.out.println("Enter your Phone Number");
 
-		while (1) {
+		while (true) {
 
-			int phone = in.nextInt();
+			phone = in.next();
 
-			if (checkPhone(phone) == true) {
+			if (Menu_Regex.checkPhone(phone) == true) {
 				break;
 			}
 			System.out.println("Please enter a valid phone number");
@@ -117,11 +131,11 @@ public class Top_Menu {
 
 		System.out.println("Choose a password:");
 
-		while (1) {
+		while (true) {
 
-			String password = in.next();
+			password = in.next();
 
-			if (checkPassword(password) == true) {
+			if (Menu_Regex.checkPassword(password) == true) {
 				break;
 			}
 			System.out.println("Please enter a valid password");
@@ -143,9 +157,6 @@ public class Top_Menu {
 		if (putIfAbsentReturn != null) {
 			System.out.println("The a user with that email is already in the System, select Log In");
 		}
-
-		// test print to check if the user was really stored in userMap
-		System.out.println(userMap.get(email).getPhone());
 
 	}
 
@@ -174,14 +185,22 @@ public class Top_Menu {
 			// if it is true then the log in can proceed, if not then send a message to the
 			// user to say user doesn't exist
 			match = matchCheck(email, password);
+
+			System.out.println(match);
+
 			if (match == false) {
 				// message user, start loop again (continue)
+				System.out.println("the email you entered is not registered, plesase register your account, \n"
+						+ "or if you are registerd, your password is incorrect, please check it and try again \n "
+						+ "or select: forgot password to recover your password");
 			}
-			
-			// at this stage if match was changed to true then the loop will end and it will then proceed to the logged in menu
+
+			// at this stage if match was changed to true then the loop will end and it will
+			// then proceed to the logged in menu
 		}
 
-		// need to make a way to pass through which user is being logged in so it can be linked with the user in the logged in menu
+		// need to make a way to pass through which user is being logged in so it can be
+		// linked with the user in the logged in menu
 		Logged_In_Menu.main(null);
 
 	}
@@ -190,7 +209,18 @@ public class Top_Menu {
 	// match
 	public static boolean matchCheck(String email, String password) {
 
-		return false;
-	}
+		// needs to go through the hash map user map and check the email and password
 
+
+		System.out.println(userMap.get(email).getEmail());
+
+		if (userMap.containsKey(email)) {
+
+			return true;
+
+	}
+		else 
+			return false;
+
+}
 }
