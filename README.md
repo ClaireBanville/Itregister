@@ -8,6 +8,12 @@ To start running the program extract all the .java files from the .zip folder su
 
 File paths can be found in the address bar of windows file explorer in order to locate the files.
 
+Type this into the CMD terminal:
+javac Account_Storage.java Technicians.java User.java Logged_In_Menu.java Menu_Regex.java Submit_IT_Docket.java Top_Menu.java
+
+then type this to run the program:
+java Top_Menu
+
 Prerequisites
 
 In order to run the program users will have to have access to Open JDK CMD or Eclipse to run the script in a test environment.
