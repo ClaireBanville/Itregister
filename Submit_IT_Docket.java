@@ -1,21 +1,19 @@
 package Menues;
 
-import java.util.UUID;
-
-import accounts.Technicians;
-
 public class Submit_IT_Docket {
-	private int MAX_ASSIGN = 1;
-	private String description, userName;
+	private String description, userName, randomValue;
 	private int severity;
-	private static UUID uniqueKey;
+	private String uniqueKey;
 
-	public Submit_IT_Docket(UUID uniqueKey, String description, int severity, String userName) {
+	// String userName add back into array once Top menu is functional
+
+	public Submit_IT_Docket(String uniqueKey, String description, int severity, String randomValue) {
 		// TODO Auto-generated constructor stub
 		this.description = description;
 		this.severity = severity;
-		this.userName = userName;
+		// this.userName = userName;
 		this.uniqueKey = uniqueKey;
+		this.randomValue = randomValue;
 	}
 
 	public String getDescription() {
@@ -25,32 +23,47 @@ public class Submit_IT_Docket {
 	public int getSeverity() {
 		return severity;
 	}
-	public String getuserName() {
-		return userName;
-	}
-	public static synchronized UUID uniqueKey()
-	{
-	    return uniqueKey;
-	}  
-		
-		public void printITsubmittion() {
 
+	// public String getuserName() {
+	// return userName;
+	// }
+
+	public String uniqueKey() {
+		return uniqueKey;
+	}
+
+	public String getRandomValue() {
+		return randomValue;
+	}
+	public void printITsubmittion() {
+//Prints details of the submitted IT Docket
+		System.out.printf("%s %s\n", "Issue ID:", uniqueKey);
+		System.out.printf("%s %s\n", "Issue Description:", description);
+		System.out.printf("%s %s\n", "Issue Severity:", severity);
+		// System.out.printf("%s %s\n", "Issue Reporter:", userName);
+
+	}
+
+	public void techicianITTickets() {
+
+		if (severity == 1 || severity == 2) {
+			// assigns to a random level one tech
 			System.out.printf("%s %s\n", "Issue ID:", uniqueKey);
 			System.out.printf("%s %s\n", "Issue Description:", description);
 			System.out.printf("%s %s\n", "Issue Severity:", severity);
-			System.out.printf("%s %s\n", "Issue Reporter:", userName);
-			
+			// System.out.printf("%s %s\n", "Issue Reporter:", userName);
+			System.out.printf("%s %s\n", "Assigned Technician:", randomValue);
+
+		}
+		if (severity == 3 || severity == 4) {
+			// assigns to a random level two tech
+			System.out.printf("%s %s\n", "Issue ID:", uniqueKey);
+			System.out.printf("%s %s\n", "Issue Description:", description);
+			System.out.printf("%s %s\n", "Issue Severity:", severity);
+			// System.out.printf("%s %s\n", "Issue Reporter:", userName);
+			System.out.printf("%s %s\n", "Assigned Technician:", randomValue);
+
+		}
+
 	}
-
-		public void techicianITTickets() {
-			
-			if(severity == 1 || severity == 2){
-			//assign to a random level one tech
-			}
-			if(severity == 3 || severity == 4){
-			//assign to a random level two tech
-			}
-			
-}
-
 }
