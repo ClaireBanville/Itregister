@@ -11,12 +11,6 @@ import accounts.Account_Storage;
 
 public class Top_Menu {
 
-	// stuff from regex
-
-	// end stuff from regex
-	// ----------------------------
-	// ------------------------------
-
 	// creating a map of users
 	private static Map<String, User> userMap = new HashMap<String, User>();
 
@@ -83,7 +77,7 @@ public class Top_Menu {
 		// declaring the variables
 		String email;
 		String name;
-		CharSequence phone;
+		int phone;
 		String password;
 
 		// creating scanner to take data input
@@ -120,7 +114,7 @@ public class Top_Menu {
 
 		while (true) {
 
-			phone = in.next();
+			phone = in.nextInt();
 
 			if (Menu_Regex.checkPhone(phone) == true) {
 				break;
@@ -211,16 +205,14 @@ public class Top_Menu {
 
 		// needs to go through the hash map user map and check the email and password
 
-
 		System.out.println(userMap.get(email).getEmail());
 
 		if (userMap.containsKey(email)) {
 
 			return true;
 
-	}
-		else 
+		} else
 			return false;
 
-}
+	}
 }
