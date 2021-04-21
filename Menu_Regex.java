@@ -4,23 +4,21 @@ import java.util.regex.*;
 
 public class Menu_Regex {
 
-public static boolean checkUserName(String name) {
-	
-	String regex = "^[a-zA-Z0-9._-]{3,}$";
-	
-	Pattern p = Pattern.compile(regex);
-	
-	if(name == null)
-	{
-		return false;
+	public static boolean checkUserName(String name) {
+
+		String regex = "^[a-zA-Z0-9._-]{3,}$";
+
+		Pattern p = Pattern.compile(regex);
+
+		if (name == null) {
+			return false;
+		}
+
+		Matcher m = p.matcher(name);
+
+		return true;
+
 	}
-	
-	
-	Matcher m = p.matcher(name);
-	  
-    return true;
-	
-}
 
 	public static boolean checkPassword(String pass) {
 
@@ -64,20 +62,20 @@ public static boolean checkUserName(String name) {
 
 	}
 
-	public static boolean checkPhone(CharSequence ph) {
+	public static boolean checkPhone(int phone) {
 
 		String regex = "^(?:\\+?(61))? ?(?:\\((?=.*\\)))?(0?[2-57-8])\\)? ?(\\d"
 				+ "\\d(?:[- ](?=\\d{3})|(?!\\d\\d[- ]?\\d[- ]))\\d\\d[- ]?\\d" + "[- ]?\\d{3})$";
 
 		Pattern p = Pattern.compile(regex);
 
-		if (ph == null) {
+		if (phone == 0) {
 
 			return false;
 
 		}
 
-		Matcher m = p.matcher(ph);
+		// Matcher m = p.matcher(phone);
 
 		return true;
 
