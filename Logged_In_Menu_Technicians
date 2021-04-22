@@ -1,0 +1,157 @@
+package Menues;
+
+import java.util.UUID;
+import java.util.Scanner;
+
+import accounts.Technicians;
+import accounts.User;
+
+public class Logged_In_Menu_Technicians {
+
+	private static final Scanner sc = new Scanner(System.in);
+	private static final Submit_IT_Docket[] itsubmittions = new Submit_IT_Docket[1000];
+	private static int submittionCount = 0;
+
+	public static void main(String[] args) {
+		String menuSelection;
+		char selection = '\0';
+
+		do {
+			System.out.println("Select an option:");
+			System.out.println("1. View IT tickets assigned to me");
+			System.out.println("2. Escalate a Ticket");
+			System.out.println("3. View All IT ticket submissions");
+			System.out.println("4. Log Out");
+			System.out.println("5. Change Password");
+
+			// take input
+			System.out.println();
+
+			System.out.print("Enter your selection: ");
+			menuSelection = sc.nextLine();
+
+			if (menuSelection.length() != 1) {
+				System.out.println("Error - selection must be a single character!");
+
+			} else {
+				selection = Character.toUpperCase(menuSelection.charAt(0));
+
+				switch (selection) {
+				case '1':
+
+					viewITsubmittion();
+					break;
+				case '2':
+
+					escalateTicket();
+					break;
+
+				case '3':
+
+					actionTicket();
+					break;
+
+				case '4':
+
+					System.out.println("System shutting down – goodbye!");
+					Top_Menu.main(null);
+					break;
+
+				case '5':
+
+					changePassword();
+					break;
+
+				default:
+
+					System.out.println("Error - invalid selection!");
+				}
+			}
+			System.out.println();
+
+		} while (selection != '3');
+
+	}
+
+	private static void escalateTicket() {
+		// TODO Auto-generated method stub
+
+		int sev;
+		int input;
+
+		for (int i = 0; i < submittionCount; i++) {
+			System.out.println("Ticket Number: " + i);
+			itsubmittions[i].techicianITTickets();
+			System.out.println();
+		}
+
+		System.out.println("Enter Ticket Number:");
+		input = sc.nextInt();
+		for (int i = 0; i < submittionCount; i++) {
+			if (i == input) {
+				itsubmittions[i].techicianITTickets();
+				System.out.println();
+			}
+		}
+		System.out.println(
+				"1 - Low (localised) \n2 - Medium (affecting a small group) \n3- High (affecting a large group) \n4 - Critical (affecting all users)");
+		System.out.println("Enter new severity:");
+		sev = sc.nextInt();
+		for (int i = 0; i < submittionCount; i++) {
+			if (i == input) {
+				//store new severity in array code
+				System.out.println();
+			}
+			}
+	}
+	
+	
+
+	private static void viewITsubmittion() {
+		// TODO Auto-generated method stub
+		System.out.println("Here are your current ticket submissions:");
+		if (Submit_IT_Docket.getRandomValue() = **Logged in Technician**) {
+		for (int i = 0; i < submittionCount; i++) {
+			itsubmittions[i].techicianITTickets();
+			System.out.println();
+		}
+		sc.nextLine();
+		}
+	}
+	private static void changePassword() {
+		// TODO Auto-generated method stub
+		Top_Menu.registerAccount();
+	}
+
+	private static void actionTicket() {
+		// TODO Auto-generated method stub
+		int input;
+		String newStatus;
+
+		for (int i = 0; i < submittionCount; i++) {
+			System.out.println("Ticket Number: " + i);
+			itsubmittions[i].techicianITTickets();
+			System.out.println();
+		}
+
+		System.out.println("Enter Ticket Number:");
+		input = sc.nextInt();
+		for (int i = 0; i < submittionCount; i++) {
+			if (i == input) {
+				itsubmittions[i].techicianITTickets();
+				System.out.println();
+			}
+		}
+		
+				System.out.println("Enter new status:");
+				newStatus = sc.nextLine();
+						//store new status in array code
+						System.out.println();
+					}
+			}
+			
+				for (int i = 0; i < submittionCount; i++) {
+					if (i == input) {
+
+		}
+	}
