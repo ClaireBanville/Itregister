@@ -1,6 +1,8 @@
+package accounts;
+
 public class User {
 
-	private String userName;
+	private static String userName;
 	private String password;
 	private String email;
 	private int phoneNumber;
@@ -14,7 +16,7 @@ public class User {
 		
 	}
 	
-	public String getUser(){
+	public static String getUser(){
 		
 		return userName;
 		
