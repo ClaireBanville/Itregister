@@ -3,8 +3,9 @@ package Menues;
 import java.util.Date;
 
 public class Submit_IT_Docket {
-	private String description, userName, randomValue, randomValue2, status;
-	int severity;
+	private static String description, userName, randomValue, randomValue2;
+	private static String status;
+	private static int severity;
 	private Date date;
 	private static String uniqueKey;
 
@@ -22,15 +23,15 @@ public class Submit_IT_Docket {
 		this.date = date;
 	}
 
-	public String getDescription() {
+	public static String getDescription() {
 		return description;
 	}
 
-	public int getSeverity() {
+	public static int getSeverity() {
 		return severity;
 	}
 
-	public String getuserName() {
+	public static String getuserName() {
 	return userName;
 	}
 
@@ -38,14 +39,14 @@ public class Submit_IT_Docket {
 		return uniqueKey;
 	}
 
-	public String getRandomValue() {
+	public static String getRandomValue() {
 		return randomValue;
 	}
 	
-	public String getRandomValue2() {
+	public static String getRandomValue2() {
 		return randomValue2;
 	}
-	public String getStatus() {
+	public static String getStatus() {
 		return status;
 	}
 	public Date getDate() {
