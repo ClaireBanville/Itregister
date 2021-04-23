@@ -99,13 +99,11 @@ public class Logged_In_Menu_Technicians {
 		sev = sc.nextInt();
 		for (int i = 0; i < submittionCount; i++) {
 			if (i == input) {
-				//store new severity in array code
+				// store new severity in array code
 				System.out.println();
 			}
-			}
+		}
 	}
-	
-	
 
 	private static void viewITsubmittion() {
 		// TODO Auto-generated method stub
@@ -118,6 +116,7 @@ public class Logged_In_Menu_Technicians {
 		sc.nextLine();
 		}
 	}
+
 	private static void changePassword() {
 		// TODO Auto-generated method stub
 		Top_Menu.registerAccount();
@@ -136,22 +135,16 @@ public class Logged_In_Menu_Technicians {
 
 		System.out.println("Enter Ticket Number:");
 		input = sc.nextInt();
+
+		System.out.println("Enter new status (Select from the list below):");
+		System.out.println("- To do /n - Inprogress/n - Resolved");
+		newStatus = sc.nextLine();
+
 		for (int i = 0; i < submittionCount; i++) {
 			if (i == input) {
-				itsubmittions[i].techicianITTickets();
+				Submit_IT_Docket.getStatus().replace(newStatus, newStatus);
 				System.out.println();
 			}
 		}
-		
-				System.out.println("Enter new status:");
-				newStatus = sc.nextLine();
-						//store new status in array code
-						System.out.println();
-					}
-			}
-			
-				for (int i = 0; i < submittionCount; i++) {
-					if (i == input) {
-
-		}
 	}
+}
