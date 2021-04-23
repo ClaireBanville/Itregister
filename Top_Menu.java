@@ -14,15 +14,8 @@ public class Top_Menu {
 
 	// creating a map of users
 	private static Map<String, User> userMap = new HashMap<String, User>();
-	
-	//creating objects of both logged in menus
-//	Logged_In_Menu_Technicians logged_in_menu_technicians = new Logged_In_Menu_Technicians();
 
 	public static void main(String[] args) {
-		
-		
-		//creating objects of both logged in menus
-		Logged_In_Menu_Technicians logged_in_menu_technicians = new Logged_In_Menu_Technicians();
 
 		// boolean to quit the menu loop
 		boolean quit = false;
@@ -90,7 +83,7 @@ public class Top_Menu {
 		// declaring the variables
 		String email;
 		String name;
-		int phone;
+		String phone;
 		String password;
 
 		// creating scanner to take data input
@@ -113,26 +106,31 @@ public class Top_Menu {
 		System.out.println("Enter your full name:");
 		while (true) {
 
-			name = in.next();
+			name = in.nextLine();
+			name = in.nextLine();
 
 			if (Menu_Regex.checkUserName(name) == true) {
 				break;
 			}
 
-			System.out.println("Please enter a valid");
+			System.out.println("Please enter a valid name");
 
 		}
 
-		System.out.println("Enter your Phone Number");
+		System.out.println("Enter your Phone Number:");
 
 		while (true) {
 
-			phone = in.nextInt();
+//			try {
+			phone = in.next();
 
 			if (Menu_Regex.checkPhone(phone) == true) {
 				break;
 			}
-			System.out.println("Please enter a valid phone number");
+//				System.out.println("Please enter a valid phone number");
+//			} catch (Exception e) {
+//				System.out.println("please enter a valid phone number");
+//			}
 
 		}
 
@@ -179,32 +177,31 @@ public class Top_Menu {
 		boolean match = false;
 		// put loop back if needed
 		// starting log in loop
-		//while (match == false) {
+		// while (match == false) {
 
-			// taking user email as: email
-			System.out.println("Enter your email address:");
-			String email = in.next();
-			// taking user password as: password
-			System.out.println("Choose a password:");
-			String password = in.next();
+		// taking user email as: email
+		System.out.println("Enter your email address:");
+		String email = in.next();
+		// taking user password as: password
+		System.out.println("Choose a password:");
+		String password = in.next();
 
-			// check log in details passing in email and password, saving the boolean as
-			// match
-			// if it is true then the log in can proceed, if not then send a message to the
-			// user to say user doesn't exist
-			match = matchCheck(email, password);
+		// check log in details passing in email and password, saving the boolean as
+		// match
+		// if it is true then the log in can proceed, if not then send a message to the
+		// user to say user doesn't exist
+		match = matchCheck(email, password);
 
-			System.out.println(match);
-
-			if (match == false) {
-				// message user, start loop again (continue)
-				System.out.println("the email you entered is not registered, plesase register your account, \n"
-						+ "or if you are registerd, your password is incorrect, please check it and try again \n "
-						+ "or select: forgot password to recover your password");
+		if (match == false) {
+			// message user, start loop again (continue)
+			System.out.println("the email you entered is not registered, plesase register your account, \n"
+					+ "or if you are registerd, your password is incorrect, please check it and try again \n "
+					+ "or select: forgot password to recover your password");
 			// }
 
-			// at this stage if match was changed to true then the loop will end and it will
-			// then proceed to the logged in menu
+			// runs top menu main again
+			Top_Menu.main(null);
+
 		}
 
 		// need to make a way to pass through which user is being logged in so it can be
@@ -226,64 +223,59 @@ public class Top_Menu {
 		// starting log in loop
 		// while (match == false) {
 
-			// taking user email as: email
-			System.out.println("Enter your name");
-			String name = in.nextLine();
-			// taking user password as: password
-			System.out.println("Enter password:");
-			String password = in.nextLine();
+		// taking user email as: email
+		System.out.println("Enter your name");
+		String name = in.nextLine();
+		// taking user password as: password
+		System.out.println("Enter password:");
+		String password = in.nextLine();
 
-			// check log in details passing in name and password, saving the boolean as
-			// match
-			// if it is true then the log in can proceed, if not then send a message to the user to say they don't have access
-			// checking if the Technician details are correct
-			match = matchCheckTechnician(name, password);
+		// check log in details passing in name and password, saving the boolean as
+		// match
+		// if it is true then the log in can proceed, if not then send a message to the
+		// user to say they don't have access
+		// checking if the Technician details are correct
+		match = matchCheckTechnician(name, password);
 
-			System.out.println(Technicians.technicianName[1]);
-			System.out.println(match);
+		System.out.println(Technicians.technicianName[1]);
+		System.out.println(match);
 
-			if (match == false) {
-				// message user, start loop again (continue)
-				System.out.println("you do not have access");
-				
-				Top_Menu.main(null);
-			}
+		if (match == false) {
+			// message user, start loop again (continue)
+			System.out.println("you do not have access");
 
-			// at this stage if match was changed to true then the loop will end and it will
-			// then proceed to the logged in menu
+			Top_Menu.main(null);
+		}
+
+		// at this stage if match was changed to true then the loop will end and it will
+		// then proceed to the logged in menu
 		// }
 
 		// need to make a way to pass through which user is being logged in so it can be
 		// linked with the user in the logged in menu
-		Logged_In_Menu_Technicians.runLoggedInMenuTechnicians(name); //need this to be able to pass through the technicians name
+		Logged_In_Menu_Technicians.runLoggedInMenuTechnicians(name); // need this to be able to pass through the
+																		// technicians name
 
 	}
 
 	private static boolean matchCheckTechnician(String name, String password) {
-		
-		if(Technicians.technicianName[0] == name   )
-		{
+
+		if (Technicians.technicianName[0] == name) {
 			return true;
 		}
-		if(Technicians.technicianName[1] == name   )
-		{
+		if (Technicians.technicianName[1] == name) {
 			return true;
 		}
-		if(Technicians.technicianName[2] == name   )
-		{
+		if (Technicians.technicianName[2] == name) {
 			return true;
 		}
-		if(Technicians.technicianName[3] == name   )
-		{
+		if (Technicians.technicianName[3] == name) {
 			return true;
 		}
-		if(Technicians.technicianName[4] == name   )
-		{
+		if (Technicians.technicianName[4] == name) {
 			return true;
-		}
-		else
-		{
-		return false;
+		} else {
+			return false;
 		}
 	}
 
@@ -293,7 +285,7 @@ public class Top_Menu {
 
 		// needs to go through the hash map user map and check the email and password
 
-		//System.out.println(userMap.get(email).getEmail());
+		// System.out.println(userMap.get(email).getEmail());
 
 		if (userMap.containsKey(email)) {
 
