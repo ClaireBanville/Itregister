@@ -11,8 +11,12 @@ public class Logged_In_Menu {
 	private static final Scanner sc = new Scanner(System.in);
 	private static final Submit_IT_Docket[] itsubmittions = new Submit_IT_Docket[1000];
 	private static int submittionCount = 0;
+	static String currentlyLoggedInEmail;
 
-	public static void main(String[] args) {
+	public static void runLoggedInMenu(String loggedInEmail) {
+		
+		currentlyLoggedInEmail = loggedInEmail;
+		
 		String menuSelection;
 		char selection = '\0';
 
