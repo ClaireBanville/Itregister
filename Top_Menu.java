@@ -29,6 +29,7 @@ public class Top_Menu {
 			System.out.println("1. Register a new account");
 			System.out.println("2. Log In");
 			System.out.println("3. Quit");
+			System.out.println("4. Technician Log In");
 
 			// take input
 			int menuSelection = in.nextInt();
@@ -58,6 +59,11 @@ public class Top_Menu {
 				quit = true;
 				break;
 
+				
+			case 4:
+				Logged_In_Menu_Technicians.main(null);
+				break;
+				
 			default:
 
 				System.out.println("Invalid choice.");
