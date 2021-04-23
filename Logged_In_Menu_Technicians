@@ -107,9 +107,14 @@ public class Logged_In_Menu_Technicians {
 
 	private static void viewITsubmittion() {
 		// TODO Auto-generated method stub
-		System.out.println("Here are your current ticket submissions:");
-		if (Submit_IT_Docket.getRandomValue() = **Logged in Technician**) {
+		String name = Technicians.getName();
+		
+		System.out.println("Enter Name");
+		name = sc.nextLine();
+		
+		if (name == Submit_IT_Docket.getRandomValue() || name == Submit_IT_Docket.getRandomValue2()) {
 		for (int i = 0; i < submittionCount; i++) {
+			System.out.println("Here are your current ticket submissions:");
 			itsubmittions[i].techicianITTickets();
 			System.out.println();
 		}
