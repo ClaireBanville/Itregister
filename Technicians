@@ -13,47 +13,29 @@ public class Technicians {
 	private final static String[] POSSIBLE_VALUES2 = { "Louis Tomlinson", "Zayn Malik"};
     private final static Random random2 = new Random();
    
+    private final static String[] technicianName = {"Harry Styles", "Niall Horan", "Liam Payne",  "Louis Tomlinson", "Zayn Malik"};
 	
 
 	public static String technicianLvl;
-	public static String technicianName, technicianPass;
+	public static String  technicianPass;
 
 
 	public static void main(String[] args) {
 		
-		technicianName = "Harry Styles";
-		technicianPass = "Technician1";
-		technicianLvl = "1";
-		technicianName = "Niall Horan";
-		technicianPass = "Technician2";
-		technicianLvl = "1";
-		technicianName = "Liam Payne";
-		technicianPass = "Technician3";
-		technicianLvl = "1";
-		technicianName = "Louis Tomlinson";
-		technicianPass = "Technician4";
-		technicianLvl = "2";
-		technicianName = "Zayn Malik";
-		technicianPass = "Technician5";
-		technicianLvl = "2";
+		technicianPass = "Technician_admin";
 
 	}
-	public Technicians(String technicianName, String technicianPass, String technicianLvl) {
+	public Technicians(String[] technicianName, String technicianPass) {
 		// TODO Auto-generated constructor stub
-		this.technicianName = technicianName;
 		this.technicianPass = technicianPass;
-		this.technicianLvl = technicianLvl;
 	}
 
-	public String getName() {
+	public static String[] getName() {
 		return technicianName;
 	}
 
-	public String getPass() {
+	public static String getPass() {
 		return technicianPass;
-	}
-	public String getLevel() {
-		return technicianLvl;
 	}
 
     public static String getRandomValue() {
