@@ -10,11 +10,11 @@ public class Technicians {
 	private final static String[] POSSIBLE_VALUES = { "Harry Styles", "Niall Horan", "Liam Payne"};
     private final static Random random = new Random();
 	
-	private final static String[] POSSIBLE_VALUES2 = { "Louis Tomlinson", "Zayn Malik"};
+    private final static String[] POSSIBLE_VALUES2 = { "Louis Tomlinson", "Zayn Malik"};
     private final static Random random2 = new Random();
    
-    private final static String[] technicianName = {"Harry Styles", "Niall Horan", "Liam Payne",  "Louis Tomlinson", "Zayn Malik"};
-	
+    public final static String[] technicianName = {"Harry Styles", "Niall Horan", "Liam Payne",  "Louis Tomlinson", "Zayn Malik"};
+    public final static Random name = new Random(); 
 
 	public static String technicianLvl;
 	public static String  technicianPass;
@@ -30,8 +30,8 @@ public class Technicians {
 		this.technicianPass = technicianPass;
 	}
 
-	public static String[] getName() {
-		return technicianName;
+	public static String getName() {
+		return technicianName[name.nextInt(technicianName.length)];
 	}
 
 	public static String getPass() {
