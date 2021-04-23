@@ -1,10 +1,11 @@
 package Menues;
 
 import java.util.HashMap;
+
 import java.util.Map;
 import java.util.Scanner;
 
-
+import Menues.Logged_In_Menu_Technicians;
 import accounts.Technicians;
 import accounts.User;
 import accounts.Account_Storage;
@@ -13,8 +14,15 @@ public class Top_Menu {
 
 	// creating a map of users
 	private static Map<String, User> userMap = new HashMap<String, User>();
+	
+	//creating objects of both logged in menus
+//	Logged_In_Menu_Technicians logged_in_menu_technicians = new Logged_In_Menu_Technicians();
 
 	public static void main(String[] args) {
+		
+		
+		//creating objects of both logged in menus
+		Logged_In_Menu_Technicians logged_in_menu_technicians = new Logged_In_Menu_Technicians();
 
 		// boolean to quit the menu loop
 		boolean quit = false;
@@ -201,7 +209,7 @@ public class Top_Menu {
 
 		// need to make a way to pass through which user is being logged in so it can be
 		// linked with the user in the logged in menu
-		Logged_In_Menu.main(null);
+		Logged_In_Menu.runLoggedInMenu(email);
 
 	}
 
@@ -247,7 +255,7 @@ public class Top_Menu {
 
 		// need to make a way to pass through which user is being logged in so it can be
 		// linked with the user in the logged in menu
-		Logged_In_Menu_Technicians.main(null); //need this to be able to pass through the technicians name
+		Logged_In_Menu_Technicians.runLoggedInMenuTechnicians(name); //need this to be able to pass through the technicians name
 
 	}
 
