@@ -260,19 +260,19 @@ public class Top_Menu {
 
 	private static boolean matchCheckTechnician(String name, String password) {
 
-		if (Technicians.technicianName[0] == name) {
+		if (Technicians.technicianName[0].equals(name) && password.contentEquals("Technician_admin")) {
 			return true;
 		}
-		if (Technicians.technicianName[1] == name) {
+		if (Technicians.technicianName[1].equals(name) && password.contentEquals("Technician_admin")) {
 			return true;
 		}
-		if (Technicians.technicianName[2] == name) {
+		if (Technicians.technicianName[2].equals(name) && password.contentEquals("Technician_admin")) {
 			return true;
 		}
-		if (Technicians.technicianName[3] == name) {
+		if (Technicians.technicianName[3].equals(name) && password.contentEquals("Technician_admin")) {
 			return true;
 		}
-		if (Technicians.technicianName[4] == name) {
+		if (Technicians.technicianName[4].equals(name) && password.contentEquals("Technician_admin")) {
 			return true;
 		} else {
 			return false;
@@ -289,9 +289,22 @@ public class Top_Menu {
 
 		if (userMap.containsKey(email)) {
 
-			return true;
+			System.out.println("email is correct");
+			
+			System.out.println("\n");
+			System.out.println("this is the password: " + userMap.get(email).getPassword());
+			System.out.println("\n");
+			
+			if (userMap.get(email).getPassword().equals(password))
+			{
+				System.out.println("password is correct");
+				return true;
+			}
 
-		} else
+		} 
+		
+		
+		
 			return false;
 
 	}
