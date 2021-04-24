@@ -203,10 +203,7 @@ public class Top_Menu {
 			Top_Menu.main(null);
 
 		}
-
-		// need to make a way to pass through which user is being logged in so it can be
-		// linked with the user in the logged in menu
-		Logged_In_Menu.runLoggedInMenu(email);
+Logged_In_Menu.runLoggedInMenu(email);
 
 	}
 
