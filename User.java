@@ -5,9 +5,9 @@ public class User {
 	private static String userName;
 	private String password;
 	private String email;
-	private int phoneNumber;
+	private String phoneNumber;
 	
-	public User (String user, String pass, String em, int no) {
+	public User (String user, String pass, String em, String no) {
 		
 		userName = user;
 		password = pass;
@@ -32,7 +32,7 @@ public class User {
 		return email;
 		
 	}
-	public int getPhone(){
+	public String getPhone(){
 		
 		return phoneNumber;
 		
