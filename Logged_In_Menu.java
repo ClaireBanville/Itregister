@@ -2,6 +2,8 @@ package Menues;
 
 import java.util.UUID;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 import accounts.Technicians;
@@ -9,8 +11,9 @@ import accounts.User;
 
 public class Logged_In_Menu {
 	private static final Scanner sc = new Scanner(System.in);
-	private static final Submit_IT_Docket[] itsubmittions = new Submit_IT_Docket[1000];
-	private static int submittionCount = 0;
+	//private static final Submit_IT_Docket[] itsubmittions = new Submit_IT_Docket[1000];
+	//private static int submittionCount = 0;
+	public static Map<String, Submit_IT_Docket> submittionMap = new HashMap<String, Submit_IT_Docket>();
 	static String currentlyLoggedInEmail;
 
 	public static void runLoggedInMenu(String loggedInEmail) {
@@ -60,6 +63,9 @@ public class Logged_In_Menu {
 
 					changePassword();
 					break;
+				case '5':
+					actionTicket();
+					break;
 
 				default:
 
@@ -81,11 +87,12 @@ public class Logged_In_Menu {
 		// TODO Auto-generated method stub
 		System.out.println("Here are your current ticket submissions:");
 		// if(//logged in user be tech or user = Submit_IT_Docket.getRandomValue()) {
-		for (int i = 0; i < submittionCount; i++) {
-			System.out.println("Ticket Number: " + i);
-			itsubmittions[i].techicianITTickets();
+	//	for (int i = 0; i < submittionCount; i++) {
+	//		System.out.println("Ticket Number: " + i);
+	//		itsubmittions[i].techicianITTickets();
+	    	Submit_IT_Docket.printITsubmittion();
 			System.out.println();
-		}
+	//	}
 	}
 
 	private static void addITsubmittion() {
@@ -101,7 +108,6 @@ public class Logged_In_Menu {
 
 		System.out.println("Please Enter desciption of issue: ");
 		description = sc.nextLine();
-		description = sc.nextLine();
 		System.out.println(
 				"1 - Low (localised) \n2 - Medium (affecting a small group) \n3- High (affecting a large group) \n4 - Critical (affecting all users)");
 		System.out.println("Please select severity:");
@@ -116,15 +122,30 @@ public class Logged_In_Menu {
 		System.out.println("Date Submitted: " + date);
 		System.out.println("Ticket Status: " + status);
 
-		itsubmittions[submittionCount] = new Submit_IT_Docket(uniqueKey, description, severity, userName, randomValue,
-				randomValue2, status, date);
-		submittionCount++;
-
-		for (int i = 0; i < submittionCount; i++) {
-			System.out.println();
-			System.out.println("Ticket Number: " + i);
-			itsubmittions[i].printITsubmittion();
+		//itsubmittions[submittionCount] = new Submit_IT_Docket(uniqueKey, description, severity, userName, randomValue,
+		//		randomValue2, status, date);
+		//submittionCount++;
+		Submit_IT_Docket ticket = new Submit_IT_Docket(uniqueKey, description, severity, userName, randomValue, randomValue2, status, date);
+		
+		Submit_IT_Docket.printITsubmittion();
+	//	for (int i = 0; i < Submit_IT_Docket.length; i++) {
+	//		System.out.println();
+	//		System.out.println("Ticket Number: " + i);
+		//	System.out.println(Submit_IT_Docket.printITsubmittion());
 			System.out.println("IT docket has been successfully submitted to the IT team - Thank you");
-		}
+	//	}
 	}
+
+
+private static void actionTicket() {
+	// TODO Auto-generated method stub
+	int input;
+	Submit_IT_Docket.updateStatus();
+	
+//	for (int i = 0; i < submittionCount; i++) {
+	//	System.out.println("Ticket Number: " + i);
+	//	itsubmittions[i].techicianITTickets();
+	//	System.out.println();
+	//}
+		}
 }
