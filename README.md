@@ -12,10 +12,20 @@ Type this into the CMD terminal:
 javac Collections.java Technician.java User.java Logged_In_Menu_User.java Menu_Regex.java Ticket.java Top_Menu.java Main.java Logged_In_Menu_Technician.java
 
 then type this to run the program:
-java Top_Menu
+java Main
 
-Prerequisites
+It will then take you to the Top Menu of the program where the following options are present:
+1. Register a new account
+2. Log In
+3. Quit
+4. Technician Log In
 
+The Technician's log in password is: Technician_admin
+name is the name of the technician:
+Level 1 technicians: Harry Styles, Niall Horan, Liam Payn
+Level 2 technicians: Louis Tomlinson, Zayn Malik
+
+Prerequisites:
 In order to run the program users will have to have access to Open JDK CMD or Eclipse to run the script in a test environment.
 
 Running the tests - 
