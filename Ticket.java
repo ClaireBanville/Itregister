@@ -67,6 +67,14 @@ public class Ticket {
 	public Date getDate() {
 		return date;
 	}
+	
+	
+	// status setter
+	public void setStatus(String status)
+	{
+		this.status = status;
+	}
+	
 
 //	//used within addITSUbmission to feedback to the user what they have just submitted
 //	public static void printITsubmittion() {
