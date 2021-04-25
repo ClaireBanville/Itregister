@@ -26,7 +26,7 @@ public class Logged_In_Menu_Technician {
 			System.out.println("Select an option:");
 			System.out.println("1. View IT tickets assigned to me");
 			System.out.println("2. Escalate a Ticket");
-			System.out.println("3. View All IT ticket submissions");
+			System.out.println("3. Change a Ticket's Status");
 			System.out.println("4. Log Out");
 
 			// take input
@@ -169,12 +169,13 @@ public class Logged_In_Menu_Technician {
 			}
 		}
 		
-		System.out.println("press Enter to continue:");
-		sc.nextLine();
+		
 
 		System.out.println("Enter new status (Select from the list below):");
-		System.out.println("1 To do /n 2 In Progress/n 3 Resolved");
+		System.out.println("1 To do \n 2 In Progress\n 3 Resolved");
 		newStatus = sc.nextInt();
+		
+	
 		
 		switch (newStatus)
 		{
@@ -187,6 +188,7 @@ public class Logged_In_Menu_Technician {
 					Collections.ticketList.get(j).setStatus("To DO");
 				}
 			}
+			break;
 			
 		case 2:
 			
@@ -197,6 +199,7 @@ public class Logged_In_Menu_Technician {
 					Collections.ticketList.get(k).setStatus("In Progress");
 				}
 			}
+			break;
 			
 		case 3:
 			
@@ -207,6 +210,10 @@ public class Logged_In_Menu_Technician {
 					Collections.ticketList.get(l).setStatus("Resolved");
 				}
 			}
+			break;
+			
+			default:
+				System.out.println("please enter one of the valid options");
 		}
 
 		//
@@ -221,4 +228,3 @@ public class Logged_In_Menu_Technician {
 	}
 
 }
-
