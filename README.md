@@ -9,7 +9,7 @@ To start running the program extract all the .java files from the .zip folder su
 File paths can be found in the address bar of windows file explorer in order to locate the files.
 
 Type this into the CMD terminal:
-javac Account_Storage.java Technicians.java User.java Logged_In_Menu.java Menu_Regex.java Submit_IT_Docket.java Top_Menu.java
+javac Collections.java Technician.java User.java Logged_In_Menu_User.java Menu_Regex.java Ticket.java Top_Menu.java Main.java Logged_In_Menu_Technician.java
 
 then type this to run the program:
 java Top_Menu
