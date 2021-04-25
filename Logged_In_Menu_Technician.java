@@ -208,6 +208,8 @@ public class Logged_In_Menu_Technician {
 				if (Collections.ticketList.get(l).getuniqueKey() == input)
 				{
 					Collections.ticketList.get(l).setStatus("Resolved");
+					
+					Collections.startArchiveTimer(input);
 				}
 			}
 			break;
