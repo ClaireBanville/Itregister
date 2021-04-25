@@ -107,8 +107,6 @@ public abstract class Top_Menu {
 		// checking if the Technician details are correct
 		match = matchCheckTechnician(name, password);
 
-		System.out.println(Technician.technicianName[1]);
-		System.out.println(match);
 
 		if (match == false) {
 			// message user, start loop again (continue)
