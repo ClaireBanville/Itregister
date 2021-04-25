@@ -139,7 +139,7 @@ public class Logged_In_Menu_Technician {
 	private static void actionTicket() {
 		// TODO Auto-generated method stub
 		int input;
-		String newStatus;
+		int newStatus;
 
 		for (int i = 0; i < submittionCount; i++) {
 			System.out.println("Ticket Number: " + i);
@@ -149,11 +149,69 @@ public class Logged_In_Menu_Technician {
 
 		System.out.println("Enter Ticket Number:");
 		input = sc.nextInt();
+		
+		// feedback of the chosen ticket
+		int i;
+		for (i = 0; i < Collections.ticketList.size(); i++) {
+
+			if (Collections.ticketList.get(i).getuniqueKey() == input)
+			{
+				System.out.println("This is your chosen ticket:");
+				System.out.println();
+				System.out.printf("%s %s\n", "Ticket ID: ", Collections.ticketList.get(i).getuniqueKey());
+				System.out.printf("%s %s\n", "Ticket Status: ", Collections.ticketList.get(i).getStatus());
+				System.out.printf("%s %s\n", "Issue Description:", Collections.ticketList.get(i).getDescription());
+				System.out.printf("%s %s\n", "Issue Severity:", Collections.ticketList.get(i).getSeverity());
+				System.out.printf("%s %s\n", "Issue Reporter:", Collections.ticketList.get(i).getuserName());
+				System.out.printf("%s %s\n", "Date Submitted:", Collections.ticketList.get(i).getDate());
+				System.out.println();
+				System.out.println();
+			}
+		}
+		
+		System.out.println("press Enter to continue:");
+		sc.nextLine();
 
 		System.out.println("Enter new status (Select from the list below):");
-		System.out.println("- To do /n - Inprogress/n - Resolved");
-		newStatus = sc.nextLine();
+		System.out.println("1 To do /n 2 In Progress/n 3 Resolved");
+		newStatus = sc.nextInt();
+		
+		switch (newStatus)
+		{
+		case 1:
+	
+			for (int j = 0; j < Collections.ticketList.size(); j++) {
 
+				if (Collections.ticketList.get(j).getuniqueKey() == input)
+				{
+					Collections.ticketList.get(j).setStatus("To DO");
+				}
+			}
+			
+		case 2:
+			
+			for (int k = 0; k < Collections.ticketList.size(); k++) {
+
+				if (Collections.ticketList.get(k).getuniqueKey() == input)
+				{
+					Collections.ticketList.get(k).setStatus("In Progress");
+				}
+			}
+			
+		case 3:
+			
+			for (int l = 0; l < Collections.ticketList.size(); l++) {
+
+				if (Collections.ticketList.get(l).getuniqueKey() == input)
+				{
+					Collections.ticketList.get(l).setStatus("Resolved");
+				}
+			}
+		}
+
+		//
+		
+		
 //		for (int i = 0; i < submittionCount; i++) {
 //			if (i == input) {
 //				Ticket.getStatus().replace(newStatus, newStatus);
@@ -163,3 +221,4 @@ public class Logged_In_Menu_Technician {
 	}
 
 }
+
