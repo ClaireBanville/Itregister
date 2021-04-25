@@ -21,8 +21,6 @@ public class Logged_In_Menu_User {
 	
 	// declaring the key number as 0 but it will go up to access another element then next time a ticket is created
 	static int keyNumber = 0;
-	// declaring the key array to use to identify each ticket
-		public static final int[] ticketKeys = {11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,30,32,33,34,35,36,37,38,39,40};
 
 	public static void runLoggedInMenu(String loggedInEmail) {
 
@@ -105,8 +103,8 @@ public class Logged_In_Menu_User {
 		var status = "New";
 		Date date = new Date();
 
-		// this will retrieve from the key array which starts from 11;
-		int uniqueKey = ticketKeys[keyNumber];
+		// this will retrieve from the key array which starts from 0;
+		int uniqueKey = keyNumber;
 		// adding one to the key so the next one will be different
 		keyNumber++;
 
