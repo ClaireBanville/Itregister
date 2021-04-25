@@ -36,83 +36,63 @@ public class Collections {
 
 	}
 
+	public static void printAllTechnicionTickets(String currentLoggedInName) {
+		// Prints details of the submitted IT Ticket
 
-			public static void printAllTechnicionTickets(String currentLoggedInName) {
-				// Prints details of the submitted IT Ticket
+		// getting the currentLoggedInName in ticketList
+		if (currentLoggedInName.contentEquals(Technician.POSSIBLE_VALUES[0])
+				|| currentLoggedInName.contentEquals(Technician.POSSIBLE_VALUES[1])
+				|| currentLoggedInName.contentEquals(Technician.POSSIBLE_VALUES[2])) {
+			// it is a level 1 technician, so checking randomValue
+			// need to go through the ticketList and print all the tickets corresponding to
+			// the technicion name currently logged in
+			for (int i = 0; i < Collections.ticketList.size(); i++) {
 
-				// getting the currentLoggedInName in ticketList
-						if(currentLoggedInName.contentEquals(Technician.POSSIBLE_VALUES[0]) || currentLoggedInName.contentEquals(Technician.POSSIBLE_VALUES[1]) 
-								|| currentLoggedInName.contentEquals(Technician.POSSIBLE_VALUES[2]))
-						{
-							//it is a level 1 technician, so checking randomValue
-							// need to go through the ticketList and print all the tickets corresponding to
-							// the technicion name currently logged in
-							for (int i = 0; i < Collections.ticketList.size(); i++) {
-
-								if (Collections.ticketList.get(i).getRandomValue().equals(currentLoggedInName)) {
-									System.out.printf("%s %s\n", "Ticket ID: ", Collections.ticketList.get(i).getuniqueKey());
-									System.out.printf("%s %s\n", "Ticket Status: ", Collections.ticketList.get(i).getStatus());
-									System.out.printf("%s %s\n", "Issue Description:", Collections.ticketList.get(i).getDescription());
-									System.out.printf("%s %s\n", "Issue Severity:", Collections.ticketList.get(i).getSeverity());
-									System.out.printf("%s %s\n", "Issue Reporter:", Collections.ticketList.get(i).getuserName());
-									System.out.printf("%s %s\n", "Date Submitted:", Collections.ticketList.get(i).getDate());
-									System.out.printf("\n");
-									System.out.printf("\n");
-								}
-							}
-						}
-						else
-						{
-							// it is a level 2 technician, so checking randomValue2
-							// need to go through the ticketList and print all the tickets corresponding to
-							// the technicion name currently logged in
-							for (int i = 0; i < Collections.ticketList.size(); i++) {
-
-								if (Collections.ticketList.get(i).getRandomValue2().equals(currentLoggedInName)) {
-									System.out.printf("%s %s\n", "Ticket ID: ", Collections.ticketList.get(i).getuniqueKey());
-									System.out.printf("%s %s\n", "Ticket Status: ", Collections.ticketList.get(i).getStatus());
-									System.out.printf("%s %s\n", "Issue Description:", Collections.ticketList.get(i).getDescription());
-									System.out.printf("%s %s\n", "Issue Severity:", Collections.ticketList.get(i).getSeverity());
-									System.out.printf("%s %s\n", "Issue Reporter:", Collections.ticketList.get(i).getuserName());
-									System.out.printf("%s %s\n", "Date Submitted:", Collections.ticketList.get(i).getDate());
-									System.out.printf("\n");
-									System.out.printf("\n");
-									
-								}
-							}
-						}
-				
-				
-				
-
+				if (Collections.ticketList.get(i).getRandomValue().equals(currentLoggedInName)) {
+					System.out.printf("%s %s\n", "Ticket ID: ", Collections.ticketList.get(i).getuniqueKey());
+					System.out.printf("%s %s\n", "Ticket Status: ", Collections.ticketList.get(i).getStatus());
+					System.out.printf("%s %s\n", "Issue Description:", Collections.ticketList.get(i).getDescription());
+					System.out.printf("%s %s\n", "Issue Severity:", Collections.ticketList.get(i).getSeverity());
+					System.out.printf("%s %s\n", "Issue Reporter:", Collections.ticketList.get(i).getuserName());
+					System.out.printf("%s %s\n", "Date Submitted:", Collections.ticketList.get(i).getDate());
+					System.out.printf("\n");
+					System.out.printf("\n");
+				}
 			}
-//
-//			public static void techicianITTickets() {
-//
-//				if (severity == 1 || severity == 2) {
-//					// assigns to a random level one tech
-//					System.out.printf("%s %s\n", "Ticket ID: ", uniqueKey);
-//					System.out.printf("%s %s\n", "Ticket Status: ", status);
-//					System.out.printf("%s %s\n", "Issue Description:", description);
-//					System.out.printf("%s %s\n", "Issue Severity:", severity);
-//					System.out.printf("%s %s\n", "Issue Reporter:", userName);
-//					System.out.printf("%s %s\n", "Assigned Technician:", randomValue);
-//					System.out.printf("%s %s\n", "Date Submitted:", date);
-//
-//				}
-//				if (severity == 3 || severity == 4) {
-//					// assigns to a random level two tech
-//					System.out.printf("%s %s\n", "Ticket ID: ", uniqueKey);
-//					System.out.printf("%s %s\n", "Ticket Status: ", status);
-//					System.out.printf("%s %s\n", "Issue Description:", description);
-//					System.out.printf("%s %s\n", "Issue Severity:", severity);
-//					System.out.printf("%s %s\n", "Issue Reporter:", userName);
-//					System.out.printf("%s %s\n", "Assigned Technician:", randomValue2);
-//					System.out.printf("%s %s\n", "Date Submitted:", date);
-//
-//				}
-//			}
-//
+		} else {
+			// it is a level 2 technician, so checking randomValue2
+			// need to go through the ticketList and print all the tickets corresponding to
+			// the technicion name currently logged in
+			for (int i = 0; i < Collections.ticketList.size(); i++) {
+
+				if (Collections.ticketList.get(i).getRandomValue2().equals(currentLoggedInName)) {
+					System.out.printf("%s %s\n", "Ticket ID: ", Collections.ticketList.get(i).getuniqueKey());
+					System.out.printf("%s %s\n", "Ticket Status: ", Collections.ticketList.get(i).getStatus());
+					System.out.printf("%s %s\n", "Issue Description:", Collections.ticketList.get(i).getDescription());
+					System.out.printf("%s %s\n", "Issue Severity:", Collections.ticketList.get(i).getSeverity());
+					System.out.printf("%s %s\n", "Issue Reporter:", Collections.ticketList.get(i).getuserName());
+					System.out.printf("%s %s\n", "Date Submitted:", Collections.ticketList.get(i).getDate());
+					System.out.printf("\n");
+					System.out.printf("\n");
+
+				}
+			}
+		}
+
+	}
+
+	public static void startArchiveTimer(int TicketNumber)
+			{
+				for (int i = 0; i < Collections.ticketList.size(); i++) {
+
+					if (Collections.ticketList.get(i).getuniqueKey() == TicketNumber)
+					{
+						
+					}
+						
+				}
+			}
+
 //			public void archive() {
 //				int input;
 //				if (status == "resolved") {
