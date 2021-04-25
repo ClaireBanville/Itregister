@@ -100,7 +100,7 @@ public class Logged_In_Menu_User {
 		String description, userName = currentlyLoggedInEmail, randomValue = Technician.getRandomValue(),
 				randomValue2 = Technician.getRandomValue2();
 		int severity;
-		var status = "New";
+		String status = "New";
 		Date date = new Date();
 
 		// this will retrieve from the key array which starts from 0;
