@@ -1,4 +1,4 @@
-package Menues;
+package Menus;
 
 import java.util.regex.*;
 
@@ -62,14 +62,14 @@ public class Menu_Regex {
 
 	}
 
-	public static boolean checkPhone(int phone) {
+	public static boolean checkPhone(String phone) {
 
 		String regex = "^(?:\\+?(61))? ?(?:\\((?=.*\\)))?(0?[2-57-8])\\)? ?(\\d"
 				+ "\\d(?:[- ](?=\\d{3})|(?!\\d\\d[- ]?\\d[- ]))\\d\\d[- ]?\\d" + "[- ]?\\d{3})$";
 
 		Pattern p = Pattern.compile(regex);
 
-		if (phone == 0) {
+		if (phone == null) {
 
 			return false;
 

@@ -1,4 +1,4 @@
-package accounts;
+package Accounts;
 
 public class User {
 
@@ -37,11 +37,5 @@ public class User {
 		return phoneNumber;
 		
 	}
-	
-
-	
-	
-	
-	
 	
 }
